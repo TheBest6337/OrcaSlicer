@@ -70,6 +70,8 @@ struct stl_facet {
 	}
 };
 
+std::pair<float, float> get_outside_point(stl_file *stl);
+
 #define SIZEOF_STL_FACET       50
 
 static_assert(offsetof(stl_facet, normal) == 0, "stl_facet.normal has correct offset");
