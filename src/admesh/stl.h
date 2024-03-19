@@ -72,22 +72,7 @@ struct stl_facet {
 
 struct stl_file;  // Forward declaration
 
-std::pair<float, float> get_outside_point(stl_file *stl) {
-    float max_x = -std::numeric_limits<float>::max();
-    float min_y = std::numeric_limits<float>::max();
-
-    for (uint32_t i = 0; i < stl->stats.number_of_facets; ++i) {
-        stl_facet facet = stl->facet_start[i];
-        for (int j = 0; j < 3; ++j) {
-            max_x = std::max(max_x, facet.vertex[j].x());
-            min_y = std::min(min_y, facet.vertex[j].y());
-        }
-    }
-
-    max_x += 10;
-
-    return std::make_pair(max_x, min_y);
-}
+std::pair<float, float> get_outside_point(stl_file *stl);
 
 #define SIZEOF_STL_FACET       50
 
