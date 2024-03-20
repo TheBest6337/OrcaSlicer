@@ -51,6 +51,11 @@ enum GCodeFlavor : unsigned char {
     gcfSmoothie, gcfNoExtrusion
 };
 
+enum class AdaptivePurgingType {
+    Line,
+    Voron,
+};
+
 enum class FuzzySkinType {
     None,
     External,
@@ -387,6 +392,7 @@ static std::string get_bed_temp_1st_layer_key(const BedType type)
 
 CONFIG_OPTION_ENUM_DECLARE_STATIC_MAPS(PrinterTechnology)
 CONFIG_OPTION_ENUM_DECLARE_STATIC_MAPS(GCodeFlavor)
+CONFIG_OPTION_ENUM_DECLARE_STATIC_MAPS(AdaptiveMeshingType)
 CONFIG_OPTION_ENUM_DECLARE_STATIC_MAPS(FuzzySkinType)
 CONFIG_OPTION_ENUM_DECLARE_STATIC_MAPS(InfillPattern)
 CONFIG_OPTION_ENUM_DECLARE_STATIC_MAPS(IroningType)
@@ -1262,7 +1268,7 @@ PRINT_CONFIG_CLASS_DERIVED_DEFINE(
     ((ConfigOptionFloat,               adaptive_bed_mesh_margin))
 
     // Orca: support adaptive purging
-    ((ConfigOptionBool,                adaptive_purge))
+    ((ConfigOptionEnum<AdaptivePurgingType>, adaptive_purge))
 
 
 )

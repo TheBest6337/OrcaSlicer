@@ -759,5 +759,5 @@ std::pair<float, float> get_outside_point(stl_file *stl) {
 
     max_x += 10;
 
-    return std::make_pair(max_x, min_y);
+
 }
