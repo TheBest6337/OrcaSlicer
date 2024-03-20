@@ -1607,6 +1607,12 @@ void PrintConfigDef::init_fff_params()
     def->mode    = comAdvanced;
     def->set_default_value(new ConfigOptionFloat(0));
 
+    def          = this->add("adaptive_purge", coBool);
+    def->label   = L("Adaptive purge");
+    def->tooltip = L("This option enables the Adaptive Purge feature.");
+    def->mode    = comAdvanced;
+    def->set_default_value(new ConfigOptionBool(false));
+
     def = this->add("extruder_colour", coStrings);
     def->label = L("Extruder Color");
     def->tooltip = L("Only used as a visual help on UI");
