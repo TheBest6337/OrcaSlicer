@@ -1607,11 +1607,20 @@ void PrintConfigDef::init_fff_params()
     def->mode    = comAdvanced;
     def->set_default_value(new ConfigOptionFloat(0));
 
-    def          = this->add("adaptive_purge", coBool);
+    def          = this->add("activate_adaptive_purge", coBool);
     def->label   = L("Adaptive purge");
     def->tooltip = L("This option enables the Adaptive Purge feature.");
     def->mode    = comAdvanced;
     def->set_default_value(new ConfigOptionBool(false));
+
+    def          = this->add("adaptive_purge_type", coEnum);
+    def->label   = L("Purge type");
+    def->tooltip = L("This option sets the type of purge to be used in the Adaptive Purge feature.");
+    def->enum_keys_map = &ConfigOptionEnum<AdaptivePurgeType>::get_enum_values();
+    def->enum_values.push_back("Line");
+    def->enum_values.push_back("Voron");
+    def->mode = comAdvanced;
+    def->set_default_value(new ConfigOptionEnum<AdaptivePurgeType>(AdaptivePurgeType::Line));
 
     def = this->add("extruder_colour", coStrings);
     def->label = L("Extruder Color");

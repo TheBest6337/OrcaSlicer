@@ -3577,7 +3577,8 @@ void TabPrinter::build_fff()
         optgroup->append_single_option_line("adaptive_bed_mesh_margin", "adaptive-bed-mesh");
 
         optgroup = page->new_optgroup(L("Adaptive purge"));
-        optgroup->append_single_option_line("adaptive_purge");
+        optgroup->append_single_option_line("activate_adaptive_purge", "adaptive-purge");
+        optgroup->append_single_option_line("adaptive_purge_type", "adaptive-purge");
 
         optgroup = page->new_optgroup(L("Accessory") /*, L"param_accessory"*/);
         optgroup->append_single_option_line("nozzle_type");

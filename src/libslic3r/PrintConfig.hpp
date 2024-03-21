@@ -1268,7 +1268,7 @@ PRINT_CONFIG_CLASS_DERIVED_DEFINE(
     ((ConfigOptionFloat,               adaptive_bed_mesh_margin))
 
     // Orca: support adaptive purging
-    ((ConfigOptionEnum<AdaptivePurgingType>, adaptive_purge))
+    ((ConfigOptionBool, activate_adaptive_purge))
 
 
 )
