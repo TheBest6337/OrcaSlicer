@@ -1269,6 +1269,7 @@ PRINT_CONFIG_CLASS_DERIVED_DEFINE(
 
     // Orca: support adaptive purging
     ((ConfigOptionBool, activate_adaptive_purge))
+    ((ConfigOptionEnum, adaptive_purge_type))
 
 
 )
