@@ -40,7 +40,6 @@ concurrency:
 jobs:
   build_all:
     name: Build All
-    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
@@ -51,3 +50,9 @@ jobs:
             arch: x86_64
           - os: macos-12
             arch: arm64
+    uses: ./.github/workflows/build_check_cache.yml
+    with:
+      os: ${{ matrix.os }}
+      arch: ${{ matrix.arch }}
+      build-deps-only: ${{ inputs.build-deps-only || false }}
+    secrets: inherit
